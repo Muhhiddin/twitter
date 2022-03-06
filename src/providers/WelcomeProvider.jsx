@@ -1,24 +1,25 @@
 import {createContext, useState} from "react";
 
-export const NameContext = createContext();
+export const WelcomeContext = createContext();
 
-const NameProvider = ({children}) => {
-    const [name, setName] = useState('');
+const WelcomeProvider = ({children}) => {
+    const [isWelcome, setWelcome] = useState(false);
 
     const value = {
-        name,
-        setName
+        isWelcome,
+        setWelcome
     }
 
+
     return (
-        <NameContext.Provider value={value}>
-            <NameContext.Consumer>
+        <WelcomeContext.Provider value={value}>
+            <WelcomeContext.Consumer>
                 {
                     () => children
                 }
-            </NameContext.Consumer>
-        </NameContext.Provider>
+            </WelcomeContext.Consumer>
+        </WelcomeContext.Provider>
     );
 };
 
-export default NameProvider;
+export default WelcomeProvider;

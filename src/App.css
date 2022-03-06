@@ -1,38 +1,382 @@
-.App {
-  text-align: center;
+@import url('http://fonts.cdnfonts.com/css/circe');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+:root {
+    --primary: #1DA1F2;
+    --white: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+    font-size: 11px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-family: 'Circe', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.error {
+    margin: 0 0 18px;
+    padding: 10px;
+    border: 1px solid red;
+    box-shadow: 0 0 6px 0 rgb(0 0 0 / 8%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-.App-link {
-  color: #61dafb;
+img {
+    vertical-align: bottom;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+    position: relative;
+    min-height: 90vh;
+    margin: 0;
+}
+
+.onboarding {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+}
+
+.onboarding__background {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.onboarding__background img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.onboarding__modal {
+    width: 90%;
+    margin: 5em auto;
+    position: relative;
+    max-width: 450px;
+
+}
+
+.onboarding__modal__header {
+    margin-bottom: 2em;
+}
+
+
+.errortext {
+    font-size: 14px;
+    color: red;
+}
+
+.logo-w {
+    display: flex;
+    padding: 40px 60px;
+    justify-content: space-between;
+}
+
+.auth-header {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 35px;
+    line-height: 49px;
+    color: #000000;
+
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 60px;
+    margin-top: 0;
+    text-align: left;
+}
+
+.Spinner {
+    margin: 10px 150px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+}
+
+::placeholder {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.onboarding__modal form {
+    padding: 20px 60px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-check-inline {
+    text-align: left;
+    font-size: 14px;
+}
+
+.form-control {
+    font-weight: 300;
+    height: 50px;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    padding: 23px 20px;
+    outline: none;
+    border: 2px solid #d5dde0;
+    border-radius: 5px;
+    background-color: #fff;
+    background-image: none;
+    color: #555;
+    font-size: 18px;
+    line-height: 24px;
+    -webkit-transition: border-color ease-in-out .15s;
+    transition: border-color ease-in-out .15s;
+    width: 100%;
+}
+
+.buttons-w {
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.btn.btn-primary {
+    background-color: var(--primary);
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.btn-default {
+    color: var(--primary) !important;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.link-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.link-item a {
+    text-decoration: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+    color: #1DA1F2;
+}
+
+.btn {
+    text-decoration: none;
+    width: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    padding: 20px 24px 16px;
+    color: #fff;
+    border-radius: 76px;
+    border: 0;
+    background: #1DA1F2;
+    font-size: 16px;
+    position: relative;
+}
+
+.log-popup a {
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.login-link-forgot-pass {
+    display: inline-block;
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    font-family: 'Circe', sans-serif;
+    line-height: 20px;
+    position: relative;
+    -webkit-transition: border-color ease-in-out .1s;
+    transition: border-color ease-in-out .1s;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.login-link-forgot-pass:hover {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.login-links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-links a {
+    font-size: 18px;
+    color: #022d72;
+}
+
+.copy {
+    max-width: 450px;
+    margin: 0 auto 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.login-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+    width: 100% !important;
+}
+
+.login-item input {
+    width: 100%;
+}
+
+.login-item:first-child {
+    display: block;
+}
+
+.login-text {
+    display: block;
+}
+
+.login-text input {
+    width: 5% !important;
+}
+
+.welcome {
+    background: #5C258D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4389A2, #5C258D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4389A2, #5C258D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.container {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.container img {
+    height: 250px;
+    width: 250px;
+    margin: 0 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background: no-repeat center;
+}
+
+.container h1 {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.btn-logout {
+    padding: 10px 25px;
+    float: right;
+    color: #fff;
+    border: unset;
+    background: #0040f463;
+    border: #333 solid 0.5px;
+    box-shadow: #0a53be;
+    border-radius: 5px;
+    margin: 20px 50px;
+}
+
+.btn-logout:hover {
+    background-color: rgb(44, 84, 238);
+}
+
+
+
+
+.custom-select {
+    width: 100px;
+    position: relative;
+    font-family: Arial;
+    background-color: DodgerBlue;
+    color: #fff;
+    border: unset;
+    border-radius: 20px;
+    padding: 0 10px;
+}
+
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-radius: 20px;
+    border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    border-radius: 20px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items ,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgb(48, 62, 164);
 }
