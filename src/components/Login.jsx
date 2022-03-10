@@ -1,19 +1,21 @@
 import React, {useContext, useState} from 'react';
 import logo from '../img/twitter-logo.svg' ;
 import Spinner from '../img/Spinner.svg';
-import {NameContext} from "../providers/NameProvider";
 import {WelcomeContext} from "../providers/WelcomeProvider";
 import {useLang} from "../providers/LangProvider";
+import {useNavigate} from "react-router";
+import {Link} from "react-router-dom";
 
 export default function Login() {
 
     const [isLoading, setLoading] = useState(false);
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('eve.holt@reqres.in');
     const [password, setPassword] = useState('');
+    let navigate = useNavigate();
+
     //const [error, setError] = useState({show: false, message: ''});
 
     const [lang, setLang] = useLang()
-    const {name, setName} = useContext(NameContext)
     const {setWelcome} = useContext(WelcomeContext)
 
 
@@ -49,7 +51,7 @@ export default function Login() {
                     <div className="logo-w">
                         <img alt="Twiter" src={logo}/>
                             <select className="custom-select" onChange={handleLangChange}>
-                                <option value="en">en</option>
+                                <option  value="en">en</option>
                                 <option value="ru">ru</option>
                                 <option value="uz">uz</option>
                             </select>
@@ -62,15 +64,6 @@ export default function Login() {
                                 {isLoading && <img className='Spinner' src={Spinner} alt='spinner'/>}
                                 {/* {error.show &&
                                 <div className="error animate__animated animate__shakeX">{error.message}</div>}*/}
-                                <div className="form-group">
-                                    <input className="form-control"
-                                           type="name"
-                                           value={name}
-                                           placeholder={lang.name}
-                                           autoComplete="off"
-                                           onChange={e => setName(e.target.value)}
-                                    />
-                                </div>
                                 <div className="form-group">
                                     <input className="form-control"
                                            type="email"
@@ -92,7 +85,7 @@ export default function Login() {
                                 </button>
                                 <div className="link-item">
                                     <span>Forgot password?</span>
-                                    <span>Sign up to Twitter</span>
+                                    <Link to="/signup">Sign up to Twitter</Link>
                                 </div>
                             </form>
                         </div>

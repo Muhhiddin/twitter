@@ -315,18 +315,20 @@ body {
     border: #333 solid 0.5px;
     box-shadow: #0a53be;
     border-radius: 5px;
+    text-decoration: none;
     margin: 20px 50px;
 }
 
 .btn-logout:hover {
     background-color: rgb(44, 84, 238);
+    color: #fff;
 }
 
 
 
 
 .custom-select {
-    width: 100px;
+    width: 60px;
     position: relative;
     font-family: Arial;
     background-color: DodgerBlue;
@@ -379,4 +381,83 @@ body {
 
 .select-items div:hover, .same-as-selected {
     background-color: rgb(48, 62, 164);
+}
+
+/* SingUp-form */
+.SingUp-form {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+}
+
+form {
+    width: 100%;
+    margin: 5em auto;
+    position: relative;
+    max-width: 500px;
+}
+
+.singUp-logo {
+    background: no-repeat center;
+    background-size: cover;
+}
+
+.singUp-title {
+    margin: 40px 0;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+}
+
+.change-btn {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1DA1F2;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.date-info {
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    color: #000000;
+    margin-top: 40px;
+}
+
+
+
+.date-text {
+    margin: 15px 0;
+    font-family: 'Segoe UI', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+    opacity: 0.6;
+}
+
+.form-mid {
+    width: 160px;
+    height: 50px;
+    margin: 0 20px;
+}
+
+.form-last {
+    width: 160px;
+    height: 50px;
 }
